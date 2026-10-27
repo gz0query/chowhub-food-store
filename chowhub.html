@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#153d32">
+  <meta name="description" content="Fresh Nigerian favourites, prepared with care and delivered to your door.">
+  <title>ChowHub | Good food, delivered</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="store.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <button class="icon-button menu-toggle" id="menu-toggle" type="button" aria-label="Open menu" aria-controls="site-drawer" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+      <a class="brand" href="#" aria-label="ChowHub home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 40 40">
+            <path d="M20 3.5a16.5 16.5 0 1 0 16.5 16.5"></path>
+            <path d="M20 9.5a10.5 10.5 0 1 0 10.5 10.5"></path>
+            <path d="M20 15.5a4.5 4.5 0 1 0 4.5 4.5"></path>
+            <path d="M27.5 12.5 36 4"></path>
+          </svg>
+        </span>
+        <span>Chow<span class="brand-accent">Hub</span></span>
+      </a>
+      <p class="welcome-message" id="welcome-message" aria-live="polite">Welcome</p>
+      <button class="cart-toggle" id="cart-toggle" type="button" aria-label="Open shopping tray" aria-controls="cart-panel" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L22 8H6"></path>
+          <circle cx="10" cy="19" r="1.25"></circle>
+          <circle cx="18" cy="19" r="1.25"></circle>
+        </svg>
+        <span class="cart-label">Your tray</span>
+        <span class="cart-badge" id="cart-count" aria-live="polite">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-content">
+        <p class="eyebrow">Good food. Good mood.</p>
+        <h1 id="hero-title">A little joy,<br>delivered fresh.</h1>
+        <p class="hero-copy">Made with care, packed with flavour, and on its way to you.</p>
+        <a class="hero-link" href="#menu">Explore the menu <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <span class="hero-art-circle"></span>
+        <span class="hero-art-label">Made fresh<br>for you</span>
+        <svg class="hero-leaf hero-leaf-one" viewBox="0 0 100 100">
+          <path d="M12 82C18 40 47 15 88 12 84 54 57 81 12 82Z"></path>
+          <path d="M18 78 77 23"></path>
+        </svg>
+        <svg class="hero-leaf hero-leaf-two" viewBox="0 0 100 100">
+          <path d="M14 78C22 46 48 24 82 20 78 55 54 79 14 78Z"></path>
+          <path d="m20 75 54-49"></path>
+        </svg>
+      </div>
+    </section>
+
+    <section class="menu-section" id="menu" aria-labelledby="menu-heading">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Thoughtfully prepared</p>
+          <h2 id="menu-heading">Find your favourite</h2>
+        </div>
+        <p class="section-note">A good meal is just a few taps away.</p>
+      </div>
+      <div class="filters" role="group" aria-label="Filter menu by category">
+        <button class="filter-btn is-active" type="button" data-category="all" aria-pressed="true">All dishes</button>
+        <button class="filter-btn" type="button" data-category="dish" aria-pressed="false">Rich meals</button>
+        <button class="filter-btn" type="button" data-category="snack" aria-pressed="false">Lite bites</button>
+        <button class="filter-btn" type="button" data-category="drink" aria-pressed="false">Drinks</button>
+        <button class="filter-btn" type="button" data-category="dessert" aria-pressed="false">Desserts</button>
+      </div>
+      <div class="menu-grid" id="food-list" aria-live="polite"></div>
+    </section>
+
+    <section class="delivery-note" aria-label="Delivery information">
+      <span class="delivery-note-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+          <path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"></path>
+          <circle cx="7.5" cy="18" r="1.5"></circle>
+          <circle cx="18" cy="18" r="1.5"></circle>
+        </svg>
+      </span>
+      <div><strong>Good things are on their way</strong><span>Delivery fee is ₦1,500 per order.</span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <a class="footer-brand" href="#">ChowHub</a>
+    <p>Good food, shared moments.</p>
+  </footer>
+
+  <div class="overlay" id="drawer-overlay" hidden></div>
+  <aside class="side-drawer" id="site-drawer" aria-label="Main menu" aria-hidden="true" inert>
+    <div class="drawer-header">
+      <a class="brand" href="#" aria-label="ChowHub home">Chow<span class="brand-accent">Hub</span></a>
+      <button class="icon-button close-drawer" type="button" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+    <nav class="drawer-nav" aria-label="Account navigation">
+      <a href="#account" data-drawer-link="account">Account <span aria-hidden="true">→</span></a>
+      <a href="#orders" data-drawer-link="orders">Orders <span aria-hidden="true">→</span></a>
+      <a href="#tracking" data-drawer-link="tracking">Tracking <span aria-hidden="true">→</span></a>
+    </nav>
+    <p class="drawer-message" id="drawer-message" aria-live="polite" hidden></p>
+    <p class="drawer-footer">Here for the good stuff.</p>
+  </aside>
+
+  <div class="overlay cart-overlay" id="cart-overlay" hidden></div>
+  <aside class="cart-panel" id="cart-panel" aria-labelledby="cart-heading" aria-hidden="true" inert>
+    <div class="cart-panel-header">
+      <div>
+        <p class="eyebrow">Ready when you are</p>
+        <h2 id="cart-heading">Your tray</h2>
+      </div>
+      <button class="icon-button close-cart" type="button" aria-label="Close shopping tray">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+      </button>
+    </div>
+    <div class="cart-items" id="cart-tray" aria-live="polite"></div>
+    <div class="cart-summary">
+      <div class="summary-row"><span>Subtotal</span><span id="sub-total">₦0</span></div>
+      <div class="summary-row"><span>Delivery fee</span><span id="del-fee">₦1,500</span></div>
+      <div class="summary-row summary-grand"><span>Grand total</span><span id="grand-total">₦0</span></div>
+    </div>
+    <form class="checkout-form" id="checkout-form" novalidate>
+      <label for="cust-name">Full name</label>
+      <input id="cust-name" name="name" type="text" autocomplete="name" placeholder="Your full name" required>
+      <label for="cust-addr">Delivery address</label>
+      <textarea id="cust-addr" name="address" autocomplete="street-address" rows="3" placeholder="Street, area and any helpful directions" required></textarea>
+      <p class="form-error" id="checkout-error" role="alert" hidden></p>
+      <button class="order-btn" type="submit">Dispatch order</button>
+      <p class="checkout-note">You will confirm your order in WhatsApp.</p>
+    </form>
+  </aside>
+
+  <div class="modal-backdrop" id="onboarding-backdrop" hidden>
+    <section class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title" aria-describedby="onboarding-copy">
+      <div class="onboarding-mark" aria-hidden="true">
+        <svg viewBox="0 0 40 40"><path d="M20 4a16 16 0 1 0 16 16"></path><path d="M20 11a9 9 0 1 0 9 9"></path><path d="m27 13 9-9"></path></svg>
+      </div>
+      <p class="eyebrow">Welcome to ChowHub</p>
+      <h2 id="onboarding-title">Let’s make this personal</h2>
+      <p id="onboarding-copy">Enter your name to start ordering delicious meals.</p>
+      <form id="onboarding-form" novalidate>
+        <label for="onboarding-name">Your name</label>
+        <input id="onboarding-name" name="name" type="text" autocomplete="given-name" placeholder="What should we call you?" required>
+        <p class="form-error" id="onboarding-error" role="alert" hidden></p>
+        <button class="primary-button" type="submit">Start ordering</button>
+      </form>
+    </section>
+  </div>
+
+  <div class="modal-backdrop content-modal-backdrop" id="content-modal-backdrop" hidden>
+    <section class="content-modal" id="content-modal" role="dialog" aria-modal="true" aria-labelledby="content-modal-title" aria-hidden="true" inert>
+      <header class="content-modal-header">
+        <div>
+          <p class="eyebrow" id="content-modal-eyebrow">ChowHub</p>
+          <h2 id="content-modal-title">Your orders</h2>
+        </div>
+        <button class="icon-button content-modal-close" type="button" aria-label="Close dialog">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+        </button>
+      </header>
+      <div class="content-modal-body" id="content-modal-body"></div>
+    </section>
+  </div>
+
+  <div class="assistant-widget">
+    <section class="assistant-popover" id="assistant-popover" aria-labelledby="assistant-heading" hidden>
+      <div class="assistant-heading">
+        <span class="assistant-avatar" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.5-.8L4 20l1.5-4A7.5 7.5 0 1 1 20 11.5Z"></path><path d="M8.5 11.5h.01M12.5 11.5h.01M16.5 11.5h.01"></path></svg>
+        </span>
+        <div>
+          <p class="assistant-title" id="assistant-heading">Automated Assistant</p>
+          <p class="assistant-status">Here to help</p>
+        </div>
+      </div>
+      <p class="assistant-greeting">Hi! How can I help you today?</p>
+      <div class="assistant-actions">
+        <button type="button" data-assistant-action="cart">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4h2l2.1 10.1a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 1.9-1.4L22 8H6"></path><circle cx="10" cy="19" r="1.25"></circle><circle cx="18" cy="19" r="1.25"></circle></svg>
+          <span>Check my existing cart</span>
+          <span class="assistant-arrow" aria-hidden="true">→</span>
+        </button>
+        <button type="button" data-assistant-action="tracking">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3zM14 10h4l3 3v4h-7z"></path><circle cx="7.5" cy="18" r="1.5"></circle><circle cx="18" cy="18" r="1.5"></circle></svg>
+          <span>Track my order</span>
+          <span class="assistant-arrow" aria-hidden="true">→</span>
+        </button>
+        <a href="https://wa.me/2349030221179?text=Hello%2C%20I%20would%20like%20to%20make%20an%20inquiry%20about..." target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.5-.8L4 20l1.5-4A7.5 7.5 0 1 1 20 11.5Z"></path><path d="M9 9.5c.7 2 2 3.3 4 4"></path></svg>
+          <span>Make an inquiry</span>
+          <span class="assistant-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+    <button class="assistant-fab" id="assistant-toggle" type="button" aria-label="Open automated assistant" aria-controls="assistant-popover" aria-expanded="false">
+      <svg class="whatsapp-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5 8 8 0 0 1-3.5-.8L4 20l1.5-4A7.5 7.5 0 1 1 20 11.5Z"></path><path d="M9 9.5c.7 2 2 3.3 4 4 .5.2 1.1-.2 1.3-.7l.3-.7"></path><path d="M8.6 8.6c.4-.7 1.1-.6 1.4 0l.6 1.4c.2.4.1.8-.2 1.1l-.5.5"></path></svg>
+      <svg class="assistant-close-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m6 6 12 12M18 6 6 18"></path></svg>
+    </button>
+  </div>
+
+  <script src="cart.js" defer></script>
+</body>
+</html>
